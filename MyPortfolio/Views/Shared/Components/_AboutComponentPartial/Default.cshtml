@@ -28,17 +28,33 @@
 
     <div class="row about-content about-content--buttons">
 
-        <div class="col-six tab-full left">
-            <a href="#0" class="btn btn--primary full-width">CV'mi İndir.</a>
+        <div class="col-six tab-full ">
+            <a href="#0" onclick="goToLinkedIn()" class="btn btn--primary full-width">CV'mi İndir.</a>
         </div>
-        <div class="col-six tab-full right">
-            <a href="#0" class="btn full-width">Bana Yazın</a>
+        <div class="col-six tab-full ">
+            <a href="#contact" class="smoothscroll btn full-width">Bana Yazın</a>
         </div>
 
     </div> <!-- end about-content buttons -->
-
     @await Component.InvokeAsync("_ExperienceComponentPartial")
 
      <!-- end about-content timeline -->
 
 </section>
+
+
+<script>
+    function goToLinkedIn() {
+        // Gidilecek olan URL'yi belirtin
+        var url = 'https://www.linkedin.com/in/bedirhancan/overlay/1714401088848/single-media-viewer/?profileId=ACoAAECfrocBgu_2Cgg81SFuv2LgwrZJAQqNNTw';
+
+        // Yeni bir a elementi oluşturun
+        var link = document.createElement('a');
+
+        // Bağlantının href özelliğine URL'yi atayın
+        link.href = url;
+
+        // Bağlantıyı tıklayarak linke gitme işlemini başlatın
+        link.click();
+    }
+</script>

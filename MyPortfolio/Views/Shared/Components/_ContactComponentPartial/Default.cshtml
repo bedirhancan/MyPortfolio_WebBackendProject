@@ -1,16 +1,21 @@
-﻿
+﻿@model List<MyPortfolio.DAL.Entities.Contact>
 <section id="contact" class="s-contact target-section">
 
     <div class="overlay"></div>
 
-    <div class="row narrow section-intro">
-        <div class="col-full">
-            <h3>İletişim</h3>
-            <h1>Bana Ulaşın.</h1>
+    @foreach (var item in Model)
+{
+        
+        <div class="row narrow section-intro">
+            <div class="col-full">
+                <h3>İletişim</h3>
+                <h1>@item.Title</h1>
 
-            <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>
+                <p class="lead">@item.Description</p>
+            </div>
         </div>
-    </div>
+}
+ 
 
     <div class="row contact__main">
         <div class="col-eight tab-full contact__form">
@@ -18,21 +23,21 @@
                 <fieldset>
 
                     <div class="form-field">
-                        <input name="contactName" type="text" id="contactName" placeholder="Name" value="" minlength="2" required="" aria-required="true" class="full-width">
+                        <input name="contactName" type="text" id="contactName" placeholder="İsim Soyisim" value="" minlength="2" required="" aria-required="true" class="full-width">
                     </div>
                     <div class="form-field">
                         <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="" aria-required="true" class="full-width">
                     </div>
                     <div class="form-field">
-                        <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="" class="full-width">
+                        <input name="contactSubject" type="text" id="contactSubject" placeholder="Konu" value="" class="full-width">
                     </div>
                     <div class="form-field">
-                        <textarea name="contactMessage" id="contactMessage" placeholder="message" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
+                        <textarea name="contactMessage" id="contactMessage" placeholder="Mesaj" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
                     </div>
                     <div class="form-field">
-                        <button class="full-width btn--primary">Submit</button>
+                        <button class="full-width btn--primary">Gönder</button>
                         <div class="submit-loader">
-                            <div class="text-loader">Sending...</div>
+                            <div class="text-loader">Gönderiliyor...</div>
                             <div class="s-loader">
                                 <div class="bounce1"></div>
                                 <div class="bounce2"></div>
@@ -46,37 +51,35 @@
 
             <!-- contact-warning -->
             <div class="message-warning">
-                Something went wrong. Please try again.
+                Bir şeyler yanlış gitti! Lütfen tekrar deneyin!
             </div>
 
             <!-- contact-success -->
             <div class="message-success">
-                Your message was sent, thank you!<br>
+                Mesajınız gönderildi, teşekkür ederiz!<br>
             </div>
 
         </div>
+        @foreach(var item in Model){
         <div class="col-four tab-full contact__infos">
-            <h4 class="h06">Phone</h4>
+            <h4 class="h06">Telefon Numarası</h4>
             <p>
-                Phone: (+63) 555 1212<br>
-                Mobile: (+63) 555 0100<br>
-                Fax: (+63) 555 0101
+                Telefon:@item.Phone1<br>
+                Mobil: @item.Phone2<br>
             </p>
 
             <h4 class="h06">Email</h4>
             <p>
-                someone@holawebsite.com<br>
-                info@holawebsite.com
+                @item.Email1<br>
+                @item.Email2
             </p>
 
-            <h4 class="h06">Address</h4>
+            <h4 class="h06">Adres</h4>
             <p>
-                1600 Amphitheatre Parkway<br>
-                Mountain View, CA<br>
-                94043 US
+                @item.Address<br>
             </p>
         </div>
-
+        }
     </div>
 
 </section> 
